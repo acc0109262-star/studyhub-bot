@@ -1,18 +1,10 @@
 {
-  "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "studyhub-student-bot",
+  "name": "studyhub-bot",
   "main": "worker.js",
   "compatibility_date": "2024-01-01",
   "triggers": {
     "crons": [
       "* * * * *"
     ]
-  },
-  "d1_databases": [
-    {
-      "binding": "DB",
-      "database_name": "studyhub_db",
-      "database_id": "auto"
-    }
-  ]
+  }
 }
