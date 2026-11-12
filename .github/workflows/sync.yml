@@ -1,0 +1,34 @@
+name: 🔄 StudyHub Auto Sync
+
+on:
+  schedule:
+    - cron: '0 3 * * *' # يعمل تلقائياً كل يوم الساعة 3 فجراً بتوقيت القاهرة
+  workflow_dispatch: # زر تشغيل التحديث يدوياً فوراً في أي وقت
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Check and Update Worker
+        run: |
+          curl -sSL https://raw.githubusercontent.com/sa7d321/studyhub-bot/main/worker.js -o worker.js.new
+          if [ -s worker.js.new ]; then
+            if ! cmp -s worker.js worker.js.new; then
+              mv worker.js.new worker.js
+              git config user.name "StudyHub AutoSync"
+              git config user.email "bot@studyhub.platform"
+              git add worker.js
+              git commit -m "⚡ Auto-sync latest StudyHub update"
+              git push
+              echo "✅ Updated to latest version successfully!"
+            else
+              rm worker.js.new
+              echo "✨ Already up to date!"
+            fi
+          fi
