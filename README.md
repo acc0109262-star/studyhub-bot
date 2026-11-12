@@ -8,7 +8,7 @@
 
 اضغط على الزر أدناه لتثبيت نسختك وقاعدة بياناتك تلقائياً على Cloudflare في ثوانٍ:
 
-[![Deploy to Cloudflare Workers](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/REPLACE_WITH_YOUR_USERNAME/REPLACE_WITH_YOUR_REPO)
+[![Deploy to Cloudflare Workers](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/sa7d321/studyhub-bot)
 
 ---
 
